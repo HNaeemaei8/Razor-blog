@@ -1,0 +1,68 @@
+﻿@page
+@model Razor_Blog.Pages.CreateArticleModel
+@{
+    ViewData["Title"] = "ایجاد مقاله جدید";
+
+}
+<div class="col-12 mb-3">
+    @*@if (Model.SuccessMessage != null)
+    {
+        <div class="alert alert-success">
+
+            @Model.SuccessMessage;
+        </div>
+    }*@
+
+    @if (Model.ErrorMessage != null)
+    {
+<div class="alert alert-danger">
+
+    @Model.ErrorMessage;
+</div>
+    }
+    <div class="col-6  mr-auto ml-auto text-center">
+        <h1 class="border-bottom">ایجاد مقاله جدید</h1>
+    </div>
+</div>
+<form class="mr-auto ml-auto" method="post">
+    <input type="hidden" name="Id" />
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label asp-for="@Model.createArticle.Title"> </label>
+            <input class="form-control" name="Title"   asp-for="@Model.createArticle.Title">
+            <span asp-validation-for="@Model.createArticle.Title"></span>
+        </div>
+        <div class="form-group col-md-6">
+            
+            <label asp-for="@Model.createArticle.Picture">عکس</label>
+            <input class="form-control" id="picture" name="picture" asp-for="@Model.createArticle.Picture">
+            <span asp-validation-for="@Model.createArticle.Picture"></span>
+
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="@Model.createArticle.PictureAlt"></label>
+            <input class="form-control" name="PictureAlt" asp-for="@Model.createArticle.PictureAlt">
+            <span asp-validation-for="@Model.createArticle.PictureAlt"></span>
+
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="@Model.createArticle.PictureTitle"></label>
+            <input class="form-control" name="PictureTitle" asp-for="@Model.createArticle.PictureTitle">
+            <span asp-validation-for="@Model.createArticle.PictureTitle"></span>
+
+        </div>
+        <div class="form-group col-md-12">
+            <label asp-for="@Model.createArticle.ShortDescription"></label>
+            <textarea class="form-control" name="ShortDescription" asp-for="@Model.createArticle.ShortDescription"></textarea>
+            <span asp-validation-for="@Model.createArticle.ShortDescription"></span>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.createArticle.Body"></label>
+        <textarea rows="5" type="text" class="form-control" name="Body" asp-for="@Model.createArticle.Body"></textarea>
+        <span asp-validation-for="@Model.createArticle.Body"></span>
+
+    </div>
+    <button type="submit" class="btn btn-success">ارسال</button>
+</form>
